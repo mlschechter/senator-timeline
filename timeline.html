@@ -3,11 +3,12 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['timeline']});
-      google.charts.setOnLoadCallback(drawBcChart);
-      google.charts.setOnLoadCallback(drawAdChart);
+      google.charts.setOnLoadCallback(drawBcChart1);
+      google.charts.setOnLoadCallback(drawBcChart2);
+      google.charts.setOnLoadCallback(drawAdChart1);
 
-      function drawBcChart() {
-        var bcContainer = document.getElementById('bc-timeline');
+      function drawBcChart1() {
+        var bcContainer = document.getElementById('bc1-timeline');
         var bcChart = new google.visualization.Timeline(bcContainer);
         var bcDataTable = new google.visualization.DataTable();
 
@@ -17,13 +18,35 @@
         bcDataTable.addColumn({ type: 'date', id: 'Start' });
         bcDataTable.addColumn({ type: 'date', id: 'End' });
         bcDataTable.addRows([
-          [ 'The Senator (B.C)', '', '', new Date("-001500-01-01T00:00:00.000Z"), new Date("-000001-01-01T00:00:00.000Z") ],
-          [ 'Mediterranean', 'Crete', 'Greeks took control of Crete', new Date("-001500-01-01T00:00:00.000Z"), new Date("-001450-01-01T00:00:00.000Z") ],
-          [ 'Europe', 'England', 'Stonehenge was completed', new Date("-001500-01-01T00:00:00.000Z"), new Date("-001500-01-01T00:00:00.000Z") ],
-          [ 'Language', 'Linear B developed', '', new Date("-001500-01-01T00:00:00.000Z"), new Date("-001450-01-01T00:00:00.000Z") ],
-          [ 'Greece', 'Thera volcano erupted', 'Great damage to the Aegean; end of the Minoan civilization', new Date("-001450-01-01T00:00:00.000Z"),  new Date("-001450-01-01T00:00:00.000Z") ],
-          [ 'Africa', 'Egypt', 'Hatshepsut pharaoh in Egypt', new Date("-001498-01-01T00:00:00.000Z"),  new Date("-001483-01-01T00:00:00.000Z") ],
-          [ 'Africa', 'Egypt', 'Egyptian empire at its largest', new Date("-001450-01-01T00:00:00.000Z"),  new Date("-001450-01-01T00:00:00.000Z") ]
+          [ 'The Senator (B.C)', '', '', new Date("-001500-01-01T00:00:00.000Z"), new Date("-001000-01-01T00:00:00.000Z") ],
+          [ 'Mediterranean', 'Crete', 'Greeks took control of Crete.', new Date("-001500-01-01T00:00:00.000Z"), new Date("-001475-01-01T00:00:00.000Z") ],
+          [ 'Europe', 'England', 'Stonehenge was completed.', new Date("-001500-01-01T00:00:00.000Z"), new Date("-001500-01-01T00:00:00.000Z") ],
+          [ 'Language/Culture', 'Crete', 'Linear B developed in Crete', new Date("-001500-01-01T00:00:00.000Z"), new Date("-001450-01-01T00:00:00.000Z") ],
+          [ 'Greece', 'Thera volcano erupted', 'Great damage to the Aegean; end of the Minoan civilization.', new Date("-001450-01-01T00:00:00.000Z"),  new Date("-001450-01-01T00:00:00.000Z") ],
+          [ 'Africa', 'Egypt', 'Hatshepsut pharaoh in Egypt.', new Date("-001498-01-01T00:00:00.000Z"),  new Date("-001483-01-01T00:00:00.000Z") ],
+          [ 'Africa', 'Egypt', 'Egyptian empire at its largest.', new Date("-001450-01-01T00:00:00.000Z"),  new Date("-001450-01-01T00:00:00.000Z") ],
+          [ 'Language/Culture', 'Canaan', 'Canaanites/Phoenicians invented an alphabet with 27 letters.', new Date("-001400-01-01T00:00:00.000Z"),  new Date("-001400-12-31T00:00:00.000Z") ]
+		  ]);
+          
+        var bcOptions = {
+            height: 300,
+            timeline: { showRowLabels: true }
+        };
+        bcChart.draw(bcDataTable, bcOptions);
+      }
+      
+      function drawBcChart2() {
+        var bcContainer = document.getElementById('bc2-timeline');
+        var bcChart = new google.visualization.Timeline(bcContainer);
+        var bcDataTable = new google.visualization.DataTable();
+
+        bcDataTable.addColumn({ type: 'string', id: 'Category' });
+        bcDataTable.addColumn({ type: 'string', id: 'Details' });
+        bcDataTable.addColumn({ type: 'string', role: 'tooltip' });
+        bcDataTable.addColumn({ type: 'date', id: 'Start' });
+        bcDataTable.addColumn({ type: 'date', id: 'End' });
+        bcDataTable.addRows([
+          [ 'The Senator (B.C)', '', '', new Date("-001000-01-01T00:00:00.000Z"), new Date("-000001-01-01T00:00:00.000Z") ]
 		  ]);
           
         var bcOptions = {
@@ -33,8 +56,8 @@
         bcChart.draw(bcDataTable, bcOptions);
       }
 
-      function drawAdChart() {
-        var adContainer = document.getElementById('ad-timeline');
+      function drawAdChart1() {
+        var adContainer = document.getElementById('ad1-timeline');
         var adChart = new google.visualization.Timeline(adContainer);
         var adDataTable = new google.visualization.DataTable();
 
@@ -59,7 +82,8 @@
     </script>
   </head>
   <body>
-    <div id="bc-timeline"></div>
-    <div id="ad-timeline"></div>
+    <div id="bc1-timeline"></div>
+    <div id="bc2-timeline"></div>
+    <div id="ad1-timeline"></div>
   </body>
 </html>
